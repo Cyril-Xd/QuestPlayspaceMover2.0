@@ -134,7 +134,7 @@ namespace QuestPlayspaceMover
             if (leftTrigger && LastPressed == OVRInput.Controller.LTouch)
             {
                 Vector3 currentOffset = OVRInput.GetLocalControllerPosition(OVRInput.Controller.LTouch);
-                Vector3 calculatedOffset = (startingOffset * 1) - (currentOffset * leftspeed);
+                Vector3 calculatedOffset = (startingOffset * leftspeed) - (currentOffset * leftspeed);
 
                 startingOffset = currentOffset;
                 Camera.trackingSpace.localPosition += calculatedOffset;
@@ -144,7 +144,7 @@ namespace QuestPlayspaceMover
             if (rightTrigger && LastPressed == OVRInput.Controller.RTouch)
             {
                 Vector3 currentOffset = OVRInput.GetLocalControllerPosition(OVRInput.Controller.RTouch);
-                Vector3 calculatedOffset = (startingOffset * 5) - (currentOffset * rightspeed); ;
+                Vector3 calculatedOffset = (startingOffset * rightspeed) - (currentOffset * rightspeed); ;
                 startingOffset = currentOffset;
                 Camera.trackingSpace.localPosition += calculatedOffset;
 
@@ -164,13 +164,21 @@ namespace QuestPlayspaceMover
             {
                leftspeed = leftspeed - 1;
             });
+            new Wings("Playspace Reset", "Wing_Left", () =>
+            {
+                leftspeed = 5;
+            });
             new Wings("Playspace +", "Wing_Right", () =>
             {
                rightspeed = rightspeed + 1;
             });
-            new Wings("Playspace +", "Wing_Right", () =>
+            new Wings("Playspace -", "Wing_Right", () =>
             {
                rightspeed = rightspeed - 1;
+            });
+            new Wings("Playspace Reset", "Wing_Right", () =>
+            {
+                rightspeed = 5;
             });
         }
       
