@@ -12,4 +12,4 @@ using QuestPlayspaceMover;
 [assembly: AssemblyFileVersion(ModInfo.Version)]
 [assembly: MelonInfo(typeof(QuestPlayspaceMover.Main), ModInfo.Name, ModInfo.Version, ModInfo.Author, ModInfo.DownloadLink)]
 
-[assembly: MelonGame("VRChat", "VRChat")]
+[assembly: MelonGame("VRChat")]
